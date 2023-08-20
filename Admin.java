@@ -201,7 +201,7 @@ public class Admin extends MyApp{
 							System.out.print("Enter stock of item: ");
 							int stock= retail.nextInt();
 
-							Node p = mobile.head;
+							Node p = appl.head;
 							int number = 1;
 							while(p != null) {
 								number++;
@@ -960,10 +960,10 @@ public class Admin extends MyApp{
 			}
 			System.out.println("PRICE(in Rs.)");
 			while(temp != null && temp.login_as.equalsIgnoreCase("customer")) {
-				if(temp.stk.empty()) {
-					System.out.println("NO SALES YET! ");
-				}
-				else {
+//				if(temp.stk.empty()) {
+//					System.out.println("NO SALES YET! ");
+//				}
+//				else {
 					for(int i = temp.stk.size()-1; i>=0; i--) {
 						int namelen = temp.stk.get(i).item.length();
 						total += temp.stk.get(i).price;
@@ -973,7 +973,7 @@ public class Admin extends MyApp{
 						}
 						System.out.println(temp.stk.get(i).price);
 					}
-				}
+//				}
 				temp = temp.next;
 			}
 			System.out.println("\nTotal sales uptill now: Rs. "+total+" /-\n\n");
