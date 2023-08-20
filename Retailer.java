@@ -30,7 +30,7 @@ public class Retailer {
 					case 0:
 						break;
 
-					case 1:
+					case 1:	//mobiles
 						int add = 1;
 						while( add != 0) {
 							Scanner item = new Scanner(System.in);
@@ -68,7 +68,7 @@ public class Retailer {
 						}
 						break;
 
-					case 2:
+					case 2:		//laptops
 						int add1 = 1;
 						while( add1 != 0) {
 							Scanner item = new Scanner(System.in);
@@ -103,7 +103,7 @@ public class Retailer {
 						break;
 
 
-					case 3://earphones 
+					case 3:		//earphones 
 						int add2 = 1;
 						while( add2 != 0) {
 							Scanner item = new Scanner(System.in);
@@ -188,7 +188,7 @@ public class Retailer {
 					case 0:
 						break;
 
-					case 1: 
+					case 1: //home appliances
 						int add = 1;
 						while( add != 0) {
 							Scanner item_2 = new Scanner(System.in);
@@ -205,7 +205,7 @@ public class Retailer {
 							System.out.print("Enter stock of item: ");
 							int stock= retail.nextInt();
 
-							Node p = mobile.head;
+							Node p = appl.head;
 							int number = 1;
 							while(p != null) {
 								number++;
