@@ -821,7 +821,7 @@ public class Main {
 
 	}
 	public static void main(String[] args) {
-		int login = 0;
+		String login = "";
 		String username;
 		String password = null;
 		String password_admin = null;
@@ -830,6 +830,7 @@ public class Main {
 
 		Scanner input4 = new Scanner(System.in);
 		Scanner input5 = new Scanner(System.in);
+		Scanner input6 = new Scanner(System.in);
 		System.out.println("\n\n\t\t\t\t\t\t\t\t***** WELCOME TO MYAPP *****");
 		do {
 			System.out.println("\n\n\t\t\t\t\t\t\t\t\tLogin options:");
@@ -837,30 +838,31 @@ public class Main {
 			System.out.println("\t\t\t\t\t\t\t\t\t2. LOGIN");
 			System.out.println("\t\t\t\t\t\t\t\t\t3. ADMIN");
 			System.out.println("\t\t\t\t\t\t\t\t\t 0.EXIT APP");
-			login = input4.nextInt();
+			login = input6.next();
 			switch(login) {
 
-			case 0:
+			case "0":
 				System.out.println("THANK YOU! PLEASE VISIT AGAIN...");
 				break;
 
-			case 1: 
+			case "1": //sign up
 				//new user
 				Stack<Node> stk = new Stack();
 				Scanner user = new Scanner(System.in);
-				int taken = 0;
+//				int taken = 0;
 				System.out.print("Enter username: ");
 				username = user.nextLine();
 				QueueNode temp_node = q.front;
-				while(temp_node != null && taken != 1) {
+				while(temp_node != null ) {	
 					if(temp_node.customer_name.equals(username)) {
 						System.out.println("Please enter a different username. User with this username already exists! \n");
 						Scanner user_2 = new Scanner(System.in);
 						System.out.print("Enter username: ");
 						username = user_2.nextLine();
-						taken = 1;
+						temp_node = q.front;
 					}
-					temp_node = temp_node.next;
+					else
+						temp_node = temp_node.next;
 				}
 
 				Scanner log = new Scanner(System.in);
@@ -877,11 +879,13 @@ public class Main {
 						System.out.println("Invalid input! \n");
 					}
 				}
-				System.out.print("Enter age: ");
-				int age = input4.nextInt();
-				if(age < 16) {
-					System.out.println("You are not eligible ");
-					break;
+				int age = 0;
+				while(age < 16) {
+					System.out.print("Enter age: ");
+					age = input4.nextInt();
+					if(age < 16) {
+						System.out.println("You are not eligible \n");
+					}
 				}
 
 				Scanner user2 = new Scanner(System.in);
@@ -964,7 +968,7 @@ public class Main {
 				}
 				break;
 
-			case 2:
+			case "2":
 				Scanner u = new Scanner(System.in);
 				System.out.print("Enter username: ");
 				username = u.nextLine();
@@ -1026,7 +1030,7 @@ public class Main {
 				}
 				break;
 
-			case 3:
+			case "3":
 				//admin
 				Scanner pass = new Scanner(System.in);
 				System.out.print("Enter password: ");
@@ -1078,7 +1082,6 @@ public class Main {
 			default:
 				System.out.println("Invalid input!");
 			}
-		}while( login != 0);
+		}while(! login.equals("0"));
 	}
 }
-
